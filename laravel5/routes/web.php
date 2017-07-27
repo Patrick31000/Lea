@@ -19,5 +19,5 @@ Route::get('test', 'testController@index');
 Route::get('infos', 'infoController@create');
 Route::post('users', 'infoController@store');
 Route::get('events', 'EventController@index');
-
+Route::get('accueil', 'accueilController@acc');
 
