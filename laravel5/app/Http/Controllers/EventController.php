@@ -43,4 +43,9 @@ class EventController extends Controller
 		return view('mycalender', compact('calendar'));
 
 	}
+
+	public function create()
+	{
+		return view('create');
+	}
 }
