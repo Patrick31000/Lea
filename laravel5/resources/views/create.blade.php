@@ -7,7 +7,7 @@
 	<div clss="col-lg-12">
 		<ol class="breadcrumb">
 			<li>You are here: <a href="{{ url('/') }}">Home</a></li>
-			<li><a href="{{ url('/events') }}">Events</a></li>
+			<li><a href="{{ url('/') }}">Events</a></li>
 			<li class="active">Add new event</li>
 		</ol>
 	</div>
@@ -17,7 +17,8 @@
 <div class="row">
 	<div class="col-lg-6">
 
-		<form action="{{ url('events') }}" method="POST">
+
+		<form action="{{ url('/post/create') }}" method="POST">
 			{{ csrf_field() }}
 			<div class="form-group @if($errors->has('name')) has-error has-feedback @endif">
 				<label for="name">Votre nom :</label>
