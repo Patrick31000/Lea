@@ -21,3 +21,7 @@ Route::post('users', 'infoController@store');
 Route::get('events', 'EventController@index');
 
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

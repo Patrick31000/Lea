@@ -9,7 +9,11 @@ use Calendar;
 use App\Event;
 
 class EventController extends Controller
+
 {
+
+	
+
 	public function index()
 
 	{
@@ -43,4 +47,5 @@ class EventController extends Controller
 		return view('mycalender', compact('calendar'));
 
 	}
+
 }

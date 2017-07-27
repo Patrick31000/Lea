@@ -1,17 +1,27 @@
 <?php
 
 use Illuminate\Database\Seeder;
+
 use App\Event;
 
 class AddDummyEvent extends Seeder
+
 {
+
     /**
+
      * Run the database seeds.
+
      *
+
      * @return void
+
      */
+
     public function run()
+
     {
+
     	$data = [
 
     	['title'=>'Rom Event', 'start_date'=>'2017-05-10', 'end_date'=>'2017-05-15'],
@@ -29,5 +39,5 @@ class AddDummyEvent extends Seeder
     	}
 
     }
-}
 
+}
