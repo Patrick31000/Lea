@@ -11,14 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-	return view('welcome');
-});
-Route::get('test', 'testController@index');
 
-Route::get('infos', 'infoController@create');
-Route::post('users', 'infoController@store');
-Route::get('events', 'EventController@index');
+
+Route::get('/', 'EventController@index');
+Route::get('/create', 'EventController@create');
+Route::post('/create', 'EventController@create');
 
 
 

@@ -12,7 +12,7 @@ class EventController extends Controller
 
 {
 
-	
+
 
 	public function index()
 
@@ -42,10 +42,15 @@ class EventController extends Controller
 
 		}
 
-		$calendar = Calendar::addEvents($events); 
+		$calendar = Calendar::addEvents($events);
 
 		return view('mycalender', compact('calendar'));
 
 	}
 
+
+	public function create()
+	{
+		return view('create');
+	}
 }
