@@ -7,7 +7,7 @@
 
             <div class="panel-heading">
 
-                MY Calender    
+                MY Calendar    
 
             </div>
 
