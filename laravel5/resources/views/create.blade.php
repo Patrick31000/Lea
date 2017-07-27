@@ -1,5 +1,6 @@
 @extends('template')
-
+@extends('layouts.app')
+@section('content')
 @section('contenu')
 
 <div class="row">
@@ -15,14 +16,14 @@
 
 <div class="row">
 	<div class="col-lg-6">
-		
+
 		<form action="{{ url('events') }}" method="POST">
 			{{ csrf_field() }}
 			<div class="form-group @if($errors->has('name')) has-error has-feedback @endif">
 				<label for="name">Votre nom :</label>
 				<input type="text" class="form-control" name="name" placeholder="Nom" value="{{ old('name') }}">
 				@if ($errors->has('name'))
-					<p class="help-block"><span class="glyphicon glyphicon-exclamation-sign"></span> 
+					<p class="help-block"><span class="glyphicon glyphicon-exclamation-sign"></span>
 					{{ $errors->first('name') }}
 					</p>
 				@endif
@@ -31,7 +32,7 @@
 				<label for="title">Titre de la réservation</label>
 				<input type="text" class="form-control" name="title" placeholder="Titre réservation" value="{{ old('title') }}">
 				@if ($errors->has('title'))
-					<p class="help-block"><span class="glyphicon glyphicon-exclamation-sign"></span> 
+					<p class="help-block"><span class="glyphicon glyphicon-exclamation-sign"></span>
 					{{ $errors->first('title') }}
 					</p>
 				@endif
@@ -45,13 +46,13 @@
                     </span>
 				</div>
 				@if ($errors->has('time'))
-					<p class="help-block"><span class="glyphicon glyphicon-exclamation-sign"></span> 
+					<p class="help-block"><span class="glyphicon glyphicon-exclamation-sign"></span>
 					{{ $errors->first('time') }}
 					</p>
 				@endif
 			</div>
 			<button type="submit" class="btn btn-primary">Enregistrer !</button>
-		</form>		
+		</form>
 	</div>
 </div>
 @endsection
@@ -74,4 +75,3 @@ $(function () {
 });
 </script>
 @endsection
-
