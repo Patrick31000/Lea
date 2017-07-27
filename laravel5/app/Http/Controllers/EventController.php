@@ -53,4 +53,22 @@ class EventController extends Controller
 	{
 		return view('create');
 	}
+
+
+
+	public function store(Request $request)
+{
+  	$time = explode(" - ", $request->input('time'));
+	$event = new Event;
+	$event->name = $request->input('name');
+	$event->title = $request->input('title');
+	$event->start_date = $time[0];
+	$event->end_date = $time[1];
+	// dd($request->input());
+	$event->save();
+	
+	$request->session()->flash('success', 'The event was successfully saved!');
+	return redirect('/create');
+}
+
 }
