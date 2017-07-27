@@ -49,7 +49,7 @@ class EventController extends Controller
 	}
 
 
-	public function create()
+	public function createEvent(Request $request)
 	{
 		return view('create');
 	}
