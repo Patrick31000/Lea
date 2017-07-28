@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layouts.app')
 
 @section('content')
 
@@ -6,7 +6,6 @@
 	<div clss="col-lg-12">
 		<ol class="breadcrumb">
 			<li>You are here: <a href="{{ url('/') }}">Home</a></li>
-			<li class="active"><a href="{{ url('/events') }}">Events</a></li>
 		</ol>
 	</div>
 </div>
@@ -29,18 +28,14 @@
 				@foreach($events as $event)
 				<tr>
 					<th scope="row">{{ $i++ }}</th>
-					<td><a href="{{ url('events/' . $event->id) }}">{{ $event->title }}</a></td>
-					<td>{{ date("g:ia\, jS M Y", strtotime($event->start_time)) }}</td>
-					<td>{{date("g:ia\, jS M Y", strtotime($event->end_time)) }}</td>
+					<td><a href="{{ url('/' . $event->id) }}">{{ $event->title }}</a></td>
+					<td>{{ ($event->start_date) }}</td>
+					<td>{{($event->end_date) }}</td>
 					<td>
-						<a class="btn btn-primary btn-xs" href="{{ url('events/' . $event->id . '/edit')}}">
+						<a class="btn btn-primary btn-xs" href="{{ url('/' . $event->id . '/edit')}}">
 							<span class="glyphicon glyphicon-edit"></span> Edit</a> 
-							<form action="{{ url('events/' . $event->id) }}" style="display:inline" method="POST">
-								<input type="hidden" name="_method" value="DELETE" />
-								{{ csrf_field() }}
-								<button class="btn btn-danger btn-xs" type="submit"><span class="glyphicon glyphicon-trash"></span> Delete</button>
-							</form>
-							
+							<a class="btn btn-danger btn-xs" href="{{ route('delete', $event->id) }}"><span class="glyphicon glyphicon-delete"></span> Delete</a> 
+
 						</td>
 					</tr>
 					@endforeach

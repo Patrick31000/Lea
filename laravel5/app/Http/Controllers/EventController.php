@@ -8,9 +8,30 @@ use Calendar;
 
 use App\Event;
 
+use Carbon\Carbon;
+
 class EventController extends Controller
 
 {
+
+	public function edit()
+	{
+		
+		$data = [
+		'page_title' => 'Events',
+		'events' => Event::orderBy('start_date')->get(),
+		];
+		return view('/list',$data);
+		
+	}
+
+	public function destroy($id)
+	{
+		$event = Event::find($id);
+		$event->delete();
+		
+		return redirect('/list');
+	}
 
 	public function list()
 
@@ -19,7 +40,7 @@ class EventController extends Controller
 		$events = [];
 
 		$data = Event::all();
-		dd($data);
+		//dd($data);
 
 		if($data->count()){
 
@@ -65,9 +86,13 @@ class EventController extends Controller
 
 					true,
 
+					// new Carbon($value->start_date),
+
+					// new Carbon($value->end_date)
+
 					new \DateTime($value->start_date),
 
-					new \DateTime($value->end_date.' +1 day')
+					new \DateTime($value->end_date)
 
 					);
 
@@ -102,4 +127,45 @@ class EventController extends Controller
 		$request->session()->flash('success', 'The event was successfully saved!');
 		return redirect('/create');
 	}
+
+	public function show($id)
+	{
+		$event = Event::findOrFail($id);
+		$event->start_date =  $this->change_date_format_fullcalendar($event->start_date);
+		$event->end_date =  $this->change_date_format_fullcalendar($event->end_date);
+		
+		$data = [
+		'page_title' 	=> 'Edit '.$event->title,
+		'event'			=> $event,
+		];
+		
+		return view('/edit', $data);
+	}
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+    	$this->validate($request, [
+    		'name'	=> 'required|min:5|max:15',
+    		'title' => 'required|min:5|max:100',
+    		'date'	=> 'required|available|duration'
+    		]);
+
+    	$time = explode(" - ", $request->input('time'));
+
+    	$event 					= Event::findOrFail($id);
+    	$event->name			= $request->input('name');
+    	$event->title 			= $request->input('title');
+    	$event->start_date		= $this->change_date_format($time[0]);
+    	$event->end_date 		= $this->change_date_format($time[1]);
+    	$event->save();
+
+    	return redirect('/list');
+    }
 }

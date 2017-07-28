@@ -7,8 +7,14 @@ use Illuminate\Http\Request;
 class listController extends Controller
 {
 
-	public function edit()
+	public function index()
 	{
-		return view('list');
+		
+		$data = [
+		'page_title' => 'Events',
+		'events' => Event::orderBy('start_time')->get(),
+		];
+		return view('/list',$data);
+		
 	}
 }
