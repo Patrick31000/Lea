@@ -12,7 +12,40 @@ class EventController extends Controller
 
 {
 
+	public function list()
 
+	{
+
+		$events = [];
+
+		$data = Event::all();
+		dd($data);
+
+		if($data->count()){
+
+			foreach ($data as $key => $value) {
+
+				$events[] = Calendar::event(
+
+					$value->title,
+
+					true,
+
+					new \DateTime($value->start_date),
+
+					new \DateTime($value->end_date.' +1 day')
+
+					);
+
+			}
+
+		}
+
+		// $calendar = Calendar::addEvents($events);
+
+		return view('list', compact('events'));
+
+	}
 
 	public function index()
 
@@ -49,24 +82,24 @@ class EventController extends Controller
 	}
 
 	public function create()
-{
-  return view('/create');
-}
+	{
+		return view('/create');
+	}
 
 
 
 	public function store(Request $request)
-{
-  	$time = explode(" - ", $request->input('time'));
-	$event = new Event;
-	$event->name = $request->input('name');
-	$event->title = $request->input('title');
-	$event->start_date = $time[0];
-	$event->end_date = $time[1];
+	{
+		$time = explode(" - ", $request->input('time'));
+		$event = new Event;
+		$event->name = $request->input('name');
+		$event->title = $request->input('title');
+		$event->start_date = $time[0];
+		$event->end_date = $time[1];
 	// dd($request->input());
-	$event->save();
-	
-	$request->session()->flash('success', 'The event was successfully saved!');
-	return redirect('/create');
-}
+		$event->save();
+
+		$request->session()->flash('success', 'The event was successfully saved!');
+		return redirect('/create');
+	}
 }

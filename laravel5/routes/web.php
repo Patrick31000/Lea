@@ -17,6 +17,7 @@ Route::get('/', 'EventController@index');
 
 Route::get('/create', 'EventController@create');
 Route::post('/post/create', 'EventController@store');
+Route::get('/list', 'EventController@list');
 
 
 Auth::routes();
