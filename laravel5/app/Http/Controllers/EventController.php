@@ -8,6 +8,8 @@ use Calendar;
 
 use App\Event;
 
+use Carbon\Carbon;
+
 class EventController extends Controller
 
 {
@@ -32,9 +34,13 @@ class EventController extends Controller
 
 					true,
 
+					// new Carbon($value->start_date),
+
+					// new Carbon($value->end_date)
+
 					new \DateTime($value->start_date),
 
-					new \DateTime($value->end_date.' +1 day')
+					new \DateTime($value->end_date)
 
 					);
 
