@@ -13,6 +13,7 @@ use Carbon\Carbon;
 class EventController extends Controller
 
 {
+	// Edite une liste de tous les évènements
 
 	public function edit()
 	{
@@ -25,6 +26,8 @@ class EventController extends Controller
 		
 	}
 
+	//Supprime un évènement
+
 	public function destroy($id)
 	{
 		$event = Event::find($id);
@@ -33,40 +36,11 @@ class EventController extends Controller
 		return redirect('/list');
 	}
 
-	public function list()
+	//
 
-	{
 
-		$events = [];
 
-		$data = Event::all();
-		//dd($data);
-
-		if($data->count()){
-
-			foreach ($data as $key => $value) {
-
-				$events[] = Calendar::event(
-
-					$value->title,
-
-					true,
-
-					new \DateTime($value->start_date),
-
-					new \DateTime($value->end_date.' +1 day')
-
-					);
-
-			}
-
-		}
-
-		// $calendar = Calendar::addEvents($events);
-
-		return view('list', compact('events'));
-
-	}
+	//Affiche les évènements dans le calendrier
 
 	public function index()
 
@@ -108,12 +82,14 @@ class EventController extends Controller
 
 	}
 
+	//Affiche la page de création d'évènements au clic
+
 	public function create()
 	{
 		return view('/create');
 	}
 
-
+	//Fonction de création d'un nouvel élément.
 
 	public function store(Request $request)
 	{
@@ -130,6 +106,8 @@ class EventController extends Controller
 		return redirect('/create');
 	}
 
+	//Fonction pour afficher les données dans le formulaire  de modification
+
 	public function show($id)
 	{
 		$event = Event::findOrFail($id);
@@ -145,7 +123,7 @@ class EventController extends Controller
 	}
 
     /**
-     * Update the specified resource in storage.
+     * Fonction qui met à jour la BDD avec les nouvelles données
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
@@ -164,8 +142,8 @@ class EventController extends Controller
     	$event 					= Event::findOrFail($id);
     	$event->name			= $request->input('name');
     	$event->title 			= $request->input('title');
-    	$event->start_date		= $this->change_date_format($time[0]);
-    	$event->end_date 		= $this->change_date_format($time[1]);
+    	$event->start_date		= $time[0];
+    	$event->end_date 		= $time[1];
     	$event->save();
 
     	return redirect('/list');
