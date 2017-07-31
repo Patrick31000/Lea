@@ -2,20 +2,25 @@
 
 namespace Tests\Feature;
 
-use Tests\TestCase;
+
+use Tests\BrowserKitTestCase;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class ControllerTest extends TestCase
+
+class ControllerTest extends BrowserKitTestCase
+
 {
     /**
      * A basic test example.
      *
      * @return void
      */
-    public function testExample()
+
+    public function testscontroller()
     {
-        $this->assertTrue(true);
+        $this->call('return', 'home');
+        $this->see('Laravel');
     }
 }

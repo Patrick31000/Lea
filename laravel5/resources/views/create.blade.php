@@ -15,7 +15,6 @@
 <div class="row">
 	<div class="col-lg-6">
 
-
 		<form action="{{ url('/post/create') }}" method="POST">
 			{{ csrf_field() }}
 			<div class="form-group @if($errors->has('name')) has-error has-feedback @endif">
@@ -67,7 +66,7 @@ $(function () {
 		"timePickerIncrement": 15,
 		"autoApply": true,
 		"locale": {
-			"format": "YYYY/MM/DD HH:mm:ss",
+			"format": "YYYY/MM/DD H:mm",
 			"separator": " - ",
 		}
 	});

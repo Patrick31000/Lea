@@ -1,7 +1,6 @@
 
 @extends('template')
 @extends('layouts.app')
-@section('content')
 @section('contenu')
 <div class="container">
 
@@ -29,3 +28,5 @@
 
 
 @endsection
+
+

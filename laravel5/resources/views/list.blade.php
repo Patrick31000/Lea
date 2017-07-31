@@ -32,8 +32,9 @@
 					<td>{{ ($event->start_date) }}</td>
 					<td>{{($event->end_date) }}</td>
 					<td>
-						<a class="btn btn-primary btn-xs" href="{{ url('/' . $event->id . '/edit')}}">
-							<span class="glyphicon glyphicon-edit"></span> Edit</a> 
+						<a class="btn btn-primary btn-xs" href="{{ route('show', $event->id) }}">
+							<span class="glyphicon glyphicon-edit"></span> Show</a> 
+
 							<a class="btn btn-danger btn-xs" href="{{ route('delete', $event->id) }}"><span class="glyphicon glyphicon-delete"></span> Delete</a> 
 
 						</td>
