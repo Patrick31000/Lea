@@ -22,8 +22,8 @@ Route::get('/create', 'EventController@create');
 Route::post('/post/create', 'EventController@store');
 Route::get('/list', 'EventController@edit');
 Route::get('/delete/{id}', 'EventController@destroy')->name('delete');;
-Route::get('/edit{id}', 'EventController@show');
-Route::post('/list', 'EventController@update')->name('show');;
+Route::post('/edit/{id}', 'EventController@update')->name('edit');
+Route::get('/show/{id}', 'EventController@show')->name('show');;
 
 
 
