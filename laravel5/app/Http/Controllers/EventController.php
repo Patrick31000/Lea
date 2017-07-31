@@ -21,6 +21,7 @@ class EventController extends Controller
 	{
 
 		$events = [];
+		
 
 		$data = Event::all();
 
@@ -30,9 +31,10 @@ class EventController extends Controller
 
 				$events[] = Calendar::event(
 
+				
 					$value->title,
 
-					true,
+					false,
 
 					// new Carbon($value->start_date),
 
@@ -76,3 +78,6 @@ class EventController extends Controller
 	return redirect('/create');
 }
 }
+
+
+

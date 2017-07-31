@@ -67,7 +67,7 @@ $(function () {
 		"timePickerIncrement": 15,
 		"autoApply": true,
 		"locale": {
-			"format": "YYYY/MM/DD HH:mm:ss",
+			"format": "YYYY/MM/DD H:mm",
 			"separator": " - ",
 		}
 	});

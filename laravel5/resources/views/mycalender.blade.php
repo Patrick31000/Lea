@@ -12,7 +12,7 @@
 
             </div>
 
-            <div class="panel-body" >
+            <div class="panel-body" id="calendar" >
 
                 {!! $calendar->calendar() !!}
 
@@ -23,6 +23,7 @@
         </div>
 
     </div>
-
     
 @endsection
+
+
