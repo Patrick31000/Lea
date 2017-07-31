@@ -1,6 +1,6 @@
-@extends('layout')
+@extends('template')
 
-@section('content')
+@section('contenu')
 
 <div class="row">
 	<div clss="col-lg-12">
@@ -63,7 +63,7 @@
 @endsection
 
 @section('js')
-<script src="{{ url('_asset/js') }}/daterangepicker.js"></script>
+<script src=""{{ asset('css/daterangepicker.js') }}></script>
 <script type="text/javascript">
 	$(function () {
 		$('input[name="time"]').daterangepicker({
@@ -72,7 +72,7 @@
 			"timePickerIncrement": 15,
 			"autoApply": true,
 			"locale": {
-				"format": "YYYY/MM/DD HH:mm",
+				"format": "YYYY/MM/DD H:mm",
 				"separator": " - ",
 			}
 		});
