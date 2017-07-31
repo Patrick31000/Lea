@@ -1,5 +1,6 @@
-@extends('template')
 
+@extends('template')
+@extends('layouts.app')
 @section('contenu')
     <div class="container">
 
@@ -7,7 +8,8 @@
 
             <div class="panel-heading">
 
-                MY Calendar    
+                MY Calendar
+                <button><a href="create">Ajouter Evènement</a></button>
 
             </div>
 

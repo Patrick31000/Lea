@@ -6,6 +6,8 @@
     "type": "project",
     "require": {
         "php": ">=5.6.4",
+        "filp/whoops": "~1.0.",
+        "laravel/browser-kit-testing": "^2.0",
         "laravel/framework": "5.4.*",
         "laravel/tinker": "~1.0",
         "laravelcollective/html": "^5.4",
@@ -27,7 +29,11 @@
     "autoload-dev": {
         "psr-4": {
             "Tests\\": "tests/"
-        }
+        },
+        "classmap": [
+        "tests/TestCase.php",
+        "tests/BrowserKitTestCase.php"
+    ]
     },
     "scripts": {
         "post-root-package-install": [
