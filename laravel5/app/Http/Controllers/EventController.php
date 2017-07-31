@@ -136,16 +136,16 @@ class EventController extends Controller
     	// $this->validate($request, [
     	// 	'name'	=> 'required|min:5|max:15',
     	// 	'title' => 'required|min:5|max:100',
-    	// 	'date'	=> 'required|available|duration'
+    	// 	'date'	=> 'required'
     	// 	]);
 
-    	$time = explode(" - ", $request->input('time'));
-
+    	$time = explode(" - ", $request->input('date'));
+		// dd($time);
     	$event 					= Event::findOrFail($id);
     	$event->name			= $request->input('name');
     	$event->title 			= $request->input('title');
-    	$event->start_date		= $this->change_date_format_fullcalendar($event->start_date);
-    	$event->end_date 		= $this->change_date_format_fullcalendar($event->end_date);
+    	$event->start_date		= $time[0];
+    	$event->end_date 		= $time[1];
     	$event->save();
 
     	return redirect('/list');

@@ -25,7 +25,7 @@
 
 	<link rel="stylesheet" media="print" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.print.css"/>
 
-	<link href="css/style.css" type="text/css" rel="stylesheet"/>
+	<!-- <link href="css/style.css" type="text/css" rel="stylesheet"/> -->
 
 <body>
 	@yield('contenu')
