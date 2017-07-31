@@ -1,5 +1,4 @@
 @extends('template')
-@extends('layouts.app')
 @section('contenu')
 
 <div class="row">
@@ -67,7 +66,7 @@ $(function () {
 		"timePickerIncrement": 15,
 		"autoApply": true,
 		"locale": {
-			"format": "DD/MM/YYYY HH:mm:ss",
+			"format": "YYYY/MM/DD H:mm",
 			"separator": " - ",
 		}
 	});
