@@ -15,9 +15,8 @@
 <div class="row">
 	<div class="col-lg-6">
 		
-		
-		
-		<form action="{{ url('events/' . $event->id) }}" method="GET">
+
+		<form action="{{ route('update', $event->id) }}" method="GET">
 			{{ csrf_field() }}
 			<input type="hidden" name="_method" value="PUT" />
 			<div class="form-group @if($errors->has('name')) has-error has-feedback @endif">
@@ -48,7 +47,7 @@
 				</div>
 				@if ($errors->has('date'))
 				<p class="help-block"><span class="glyphicon glyphicon-exclamation-sign"></span> 
-					{{ $errors->first('time') }}
+					{{ $errors->first('date') }}
 				</p>
 				@endif
 			</div>
