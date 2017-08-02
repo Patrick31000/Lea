@@ -8,16 +8,20 @@ use Calendar;
 
 use App\Event;
 
+use App\User;
+
 use Carbon\Carbon;
+
+use Illuminate\Support\Facades\Auth;
 
 class EventController extends Controller
 
 {
 	// Edite une liste de tous les évènements
 
-	public function edit()
+	public function edit(Request $request)
 	{
-		
+		// dd($request->user());
 		$data = [
 		'page_title' => 'Events',
 		'events' => Event::orderBy('start_date')->get(),
@@ -99,8 +103,9 @@ class EventController extends Controller
 		$event->title = $request->input('title');
 		$event->start_date = $time[0];
 		$event->end_date = $time[1];
-	// dd($request->input());
-		$event->save();
+		Auth::user()->events()->save($event);
+		// $event->users()->save($event);
+		// $event->save();
 
 		$request->session()->flash('success', 'The event was successfully saved!');
 		return redirect('/create');

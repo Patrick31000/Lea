@@ -14,7 +14,7 @@ class listController extends Controller
 		'page_title' => 'Events',
 		'events' => Event::orderBy('start_time')->get(),
 		];
-		return view('/list',$data);
+		return view('list',$data);
 		
 	}
 }
