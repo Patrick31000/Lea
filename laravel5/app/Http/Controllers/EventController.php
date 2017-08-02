@@ -94,12 +94,7 @@ class EventController extends Controller
 		$event->start_date = $time[0];
 		$event->end_date = $time[1];
 	// dd($request->input());
-	$event->save();
-	
-	$request->session()->flash('success', 'The event was successfully saved!');
-	return redirect('/create');
-}
-
+		$event->save();
 
 		$request->session()->flash('success', 'The event was successfully saved!');
 		return redirect('/create');
@@ -138,11 +133,11 @@ class EventController extends Controller
 
     	$time = explode(" - ", $request->input('time'));
 
-    	$event 					= Event::findOrFail($id);
-    	$event->name			= $request->input('name');
-    	$event->title 			= $request->input('title');
-    	$event->start_date		= $this->change_date_format_fullcalendar($event->start_date);
-    	$event->end_date 		= $this->change_date_format_fullcalendar($event->end_date);
+    	$event = Event::findOrFail($id);
+    	$event->name = $request->input('name');
+    	$event->title = $request->input('title');
+    	$event->start_date = $this->change_date_format_fullcalendar($event->start_date);
+    	$event->end_date = $this->change_date_format_fullcalendar($event->end_date);
     	$event->save();
 
     	return redirect('/list');
