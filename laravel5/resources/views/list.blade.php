@@ -38,6 +38,8 @@
 
 							<a class="btn btn-danger btn-xs" href="{{ route('delete', $event->id) }}"><span class="glyphicon glyphicon-delete"></span> Delete</a> 
 
+							<a class="btn btn-success btn-xs" href="{{ route('bidform', $event->id) }}"><span class="glyphicon glyphicon-bid"></span> Bid</a> 
+
 						</td>
 					</tr>
 					@endforeach
