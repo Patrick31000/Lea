@@ -22,8 +22,7 @@ class RouteTest extends BrowserKitTestCase
         $this->visit('/')
             ->see('Laravel');
 
-        $this->visit('/create')
-        	->see('Laravel');
+        $this->visit('/create');
 
         $this->post('/create')
         	->see('Laravel');
