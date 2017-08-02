@@ -13,7 +13,8 @@
         "laravel/tinker": "~1.0",
         "laravelcollective/html": "^5.4",
         "maddhatter/laravel-fullcalendar": "^1.2",
-        "nesbot/carbon": "^1.22"
+        "nesbot/carbon": "^1.22",
+        "twbs/bootstrap": "^3.3"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

@@ -18,15 +18,16 @@ Route::get('accueil', 'accueilController@acc');
 
 Route::get('/', 'EventController@index');
 
+Route::group(['middleware'=>'Islogged'], function () {
 Route::get('/create', 'EventController@create');
 Route::post('/post/create', 'EventController@store');
 Route::get('/list', 'EventController@edit');
-Route::get('/delete/{id}', 'EventController@destroy')->name('delete');;
-Route::post('/edit/{id}', 'EventController@update')->name('edit');
-Route::get('/show/{id}', 'EventController@show')->name('show');;
-
+Route::get('/delete/{id}', 'EventController@destroy')->name('delete');
+Route::get('/update/{id}', 'EventController@update')->name('update');
+Route::get('/show/{id}', 'EventController@show')->name('show');
+});
 
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('home', 'HomeController@index')->name('home');

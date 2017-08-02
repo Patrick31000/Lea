@@ -13,6 +13,7 @@ use Carbon\Carbon;
 class EventController extends Controller
 
 {
+	// Edite une liste de tous les évènements
 
 	public function edit()
 	{
@@ -25,6 +26,8 @@ class EventController extends Controller
 		
 	}
 
+	//Supprime un évènement
+
 	public function destroy($id)
 	{
 		$event = Event::find($id);
@@ -33,7 +36,11 @@ class EventController extends Controller
 		return redirect('/list');
 	}
 
-	
+	//
+
+
+
+	//Affiche les évènements dans le calendrier
 
 	public function index()
 
@@ -76,14 +83,14 @@ class EventController extends Controller
 	}
 
 
+	//Affiche la page de création d'évènements au clic
 
-	
 	public function create()
 	{
 		return view('/create');
 	}
 
-
+	//Fonction de création d'un nouvel élément.
 
 	public function store(Request $request)
 	{
@@ -99,6 +106,8 @@ class EventController extends Controller
 		$request->session()->flash('success', 'The event was successfully saved!');
 		return redirect('/create');
 	}
+
+	//Fonction pour afficher les données dans le formulaire  de modification
 
 	public function show($id)
 	{
@@ -117,7 +126,7 @@ class EventController extends Controller
 	}
 
     /**
-     * Update the specified resource in storage.
+     * Fonction qui met à jour la BDD avec les nouvelles données
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
@@ -128,8 +137,9 @@ class EventController extends Controller
     	// $this->validate($request, [
     	// 	'name'	=> 'required|min:5|max:15',
     	// 	'title' => 'required|min:5|max:100',
-    	// 	'date'	=> 'required|available|duration'
+    	// 	'date'	=> 'required'
     	// 	]);
+
 
     	$time = explode(" - ", $request->input('time'));
 
@@ -138,6 +148,9 @@ class EventController extends Controller
     	$event->title = $request->input('title');
     	$event->start_date = $this->change_date_format_fullcalendar($event->start_date);
     	$event->end_date = $this->change_date_format_fullcalendar($event->end_date);
+    	$time = explode(" - ", $request->input('date'));
+		// dd($time);
+    	
     	$event->save();
 
     	return redirect('/list');
