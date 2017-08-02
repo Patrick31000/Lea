@@ -1,6 +1,6 @@
-@extends('layout')
+@extends('template')
 
-@section('content')
+@section('contenu')
 
 <div class="row">
 	<div clss="col-lg-12">
@@ -15,13 +15,8 @@
 <div class="row">
 	<div class="col-lg-6">
 		
-		@if($errors)
-		@foreach($errors->all() as $error)
-		<p>{{ $error }}</p>
-		@endforeach
-		@endif
 		
-		<form action="{{ url('events/' . $event->id) }}" method="POST">
+		<form action="{{ route('update', $event->id) }}" method="GET">
 			{{ csrf_field() }}
 			<input type="hidden" name="_method" value="PUT" />
 			<div class="form-group @if($errors->has('name')) has-error has-feedback @endif">
@@ -52,7 +47,7 @@
 				</div>
 				@if ($errors->has('date'))
 				<p class="help-block"><span class="glyphicon glyphicon-exclamation-sign"></span> 
-					{{ $errors->first('time') }}
+					{{ $errors->first('date') }}
 				</p>
 				@endif
 			</div>
@@ -63,16 +58,16 @@
 @endsection
 
 @section('js')
-<script src="{{ url('_asset/js') }}/daterangepicker.js"></script>
+<script src=""{{ asset('css/daterangepicker.js') }}></script>
 <script type="text/javascript">
 	$(function () {
-		$('input[name="time"]').daterangepicker({
+		$('input[name="date"]').daterangepicker({
 			"timePicker": true,
 			"timePicker24Hour": true,
 			"timePickerIncrement": 15,
 			"autoApply": true,
 			"locale": {
-				"format": "YYYY/MM/DD HH:mm",
+				"format": "YYYY/MM/DD H:mm",
 				"separator": " - ",
 			}
 		});

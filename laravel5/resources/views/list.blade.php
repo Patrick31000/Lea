@@ -17,10 +17,10 @@
 			<thead>
 				<tr>
 					<th>#</th>
-					<th>Event's Title</th>
-					<th>Start</th>
-					<th>End</th>
-					<th></th>
+					<th>Nom du propriétaire</th>
+					<th>Titre de l'évènement</th>
+					<th>Date et heure de début</th>
+					<th>Date et heure de fin</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -28,12 +28,14 @@
 				@foreach($events as $event)
 				<tr>
 					<th scope="row">{{ $i++ }}</th>
-					<td><a href="{{ url('/' . $event->id) }}">{{ $event->title }}</a></td>
+					<td>{{ $event->name }}</td>
+					<td><a href="{{ route('update', $event->id) }}">{{ $event->title }}</a></td>
 					<td>{{ ($event->start_date) }}</td>
 					<td>{{($event->end_date) }}</td>
 					<td>
-						<a class="btn btn-primary btn-xs" href="{{ url('/' . $event->id . '/edit')}}">
-							<span class="glyphicon glyphicon-edit"></span> Edit</a> 
+						<a class="btn btn-primary btn-xs" href="{{ route('show', $event->id) }}">
+							<span class="glyphicon glyphicon-edit"></span> Show</a> 
+
 							<a class="btn btn-danger btn-xs" href="{{ route('delete', $event->id) }}"><span class="glyphicon glyphicon-delete"></span> Delete</a> 
 
 						</td>

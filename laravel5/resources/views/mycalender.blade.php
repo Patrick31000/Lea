@@ -6,13 +6,24 @@
 
     <div class="panel panel-primary">
 
-        <div class="panel-heading">
+        @if (Route::has('login'))
+
+        <div class="panel-heading" >
 
             MY Calendar
+
+            @if (Auth::check())
+
             <button><a href="create">Ajouter Evènement</a></button>
             <button><a href="list">Liste Evènements</a></button>
 
-        </div>
+            @else
+                        
+                    @endif
+                </div>
+            @endif
+
+    
 
         <div class="panel-body" >
 
@@ -26,7 +37,7 @@
 
 </div>
 
-
 @endsection
+
 
 
