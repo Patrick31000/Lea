@@ -25,6 +25,7 @@ Route::get('/list', 'EventController@edit');
 Route::get('/delete/{id}', 'EventController@destroy')->name('delete');
 Route::get('/update/{id}', 'EventController@update')->name('update');
 Route::get('/show/{id}', 'EventController@show')->name('show');
+Route::get('bidform', 'BidController@bid')->name('bidform');
 });
 
 
