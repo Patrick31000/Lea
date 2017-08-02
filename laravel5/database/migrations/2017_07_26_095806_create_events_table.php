@@ -29,6 +29,8 @@ class CreateEventsTable extends Migration
             $table->timestamps();
 
         });
+
+        
     }
 
     /**
@@ -38,8 +40,6 @@ class CreateEventsTable extends Migration
      */
     public function down()
     {
-        Schema::drop("events");
-
-
+        Schema::dropIfExists("events");
     }
 }
