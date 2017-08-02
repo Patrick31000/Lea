@@ -22,9 +22,10 @@ class EventController extends Controller
 	public function edit(Request $request)
 	{
 		// dd($request->user());
+		
 		$data = [
 		'page_title' => 'Events',
-		'events' => Event::orderBy('start_date')->get(),
+		'events' => Auth::user()->events,
 		];
 		return view('/list',$data);
 		
