@@ -15,7 +15,6 @@
 
 Route::get('accueil', 'accueilController@acc');
 
-
 Route::get('/', 'EventController@index');
 
 Route::group(['middleware'=>'Islogged'], function () {
