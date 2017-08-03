@@ -14,11 +14,15 @@
 
 		@import url(https://fonts.googleapis.com/css?family=Open+Sans:300|Titillium+Web:700);
 
+		html {
+			height: 100vh;
+		}
+
 		body{
 			background:url(http://i.giphy.com/jcxtvm2bsZDH2.gif);
 			background-repeat:no-repeat;
 			background-position:bottom center;
-			background-size:100vh cover;
+			background-size:90vh cover;
 			font-family: 'Titillium Web', sans-serif;
 			color:#fff;
 			background-color:#1BCF00;
@@ -29,12 +33,14 @@
 			flex-direction:column;
 			justify-content: center;
 			align-items:center;
-			background-color:rgba(0,0,0,0.65);
-			min-height:100vh;
+			max-height: 80vh;
 			text-align:center;
+			margin-top: 6em;
 		}
 		h1{
-			font-size:10em;
+			margin-top: 1em;
+			margin-bottom: 0em;
+			font-size:9em;
 			font-weight:700;
 		}
 
@@ -42,7 +48,8 @@
 			font-family: 'Open Sans', sans-serif;
 			font-weight:300;
 			font-size:5vw;
-			margin-bottom:30px;
+			margin-top: 0em;
+			margin-bottom: 15px; 
 		}
 
 		a{
@@ -53,11 +60,12 @@
 			padding:10px 20px;
 			border:2px solid #fff;
 			text-decoration:none;
-			&:hover{
-				background:#fff;
-				color:#212121;
-			}
 		}
+		a:hover{
+			background:#fff;
+			color:#212121;
+		}
+	}
 	</style>
 </body>
 </html>

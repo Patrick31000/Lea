@@ -66,7 +66,7 @@ class EventController extends Controller
 					$value->title,
 
 					false,
-
+					
 					// new Carbon($value->start_date),
 
 					// new Carbon($value->end_date)
@@ -109,7 +109,7 @@ class EventController extends Controller
 		// $event->save();
 
 		$request->session()->flash('success', 'The event was successfully saved!');
-		return redirect('/create');
+		return redirect('/');
 	}
 
 	//Fonction pour afficher les données dans le formulaire  de modification
