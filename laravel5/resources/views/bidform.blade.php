@@ -1,6 +1,8 @@
 @extends('layouts.app')
 @section('content')
 
+
+
 <div class="container">
     </div>
     <div class="container" id="main-content">
@@ -54,6 +56,38 @@
                                                         <span class="input-group-addon">£</span>
                                                         <input title="" class="form-control" type="number" v-model="bidAmount">
                                                     </div>
+<?php 
+ 
+$annee = date('Y');
+$event = mktime(8, 0, 0, 10, 22, $annee);
+        
+ if ($event < time())
+ $event = mktime(8, 0, 0, 10, 22, ++$annee);
+
+ $tps_restant = $event - time(); // $noel sera toujours plus grand que le timestamp actuel, vu que c'est dans le futur. ;)
+
+//============ CONVERSIONS
+
+$i_restantes = $tps_restant / 60;
+$H_restantes = $i_restantes / 60;
+$d_restants = $H_restantes / 24;
+
+
+$s_restantes = floor($tps_restant % 60); // Secondes restantes
+$i_restantes = floor($i_restantes % 60); // Minutes restantes
+$H_restantes = floor($H_restantes % 24); // Heures restantes
+$d_restants = floor($d_restants); // Jours restants
+//==================
+
+setlocale(LC_ALL, 'fr_FR');
+
+echo 'Nous sommes le '. strftime('<strong>%d %B %Y</strong>, et il est <strong>%Hh%M</strong>') .'.<br />'
+
+   . 'Il reste exactement <strong>'. $d_restants .' jours</strong>, <strong>'. $H_restantes .' heures</strong>,'
+   . ' <strong>'. $i_restantes .' minutes</strong> et <strong>'. $s_restantes .'s</strong> avant la fin des enchères';
+
+
+?>
                                                 </div>
                                             </div>
                                             <div class="col-sm-4">
@@ -71,6 +105,7 @@
     </div>
 </div>
 @endsection
+
 
 @section('js')
 <script>
