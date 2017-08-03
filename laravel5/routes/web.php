@@ -17,6 +17,7 @@ Route::get('accueil', 'accueilController@acc');
 
 
 Route::get('/', 'EventController@index');
+Route::get('listall', 'listallController@index')->name('listall');
 
 Route::group(['middleware'=>'Islogged'], function () {
 Route::get('/create', 'EventController@create');
