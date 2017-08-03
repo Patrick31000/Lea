@@ -1,7 +1,5 @@
-@extends('template')
 @extends('layouts.app')
-
-@section('contenu')
+@section('content')
 
 <h1>Bienvenue sur notre planning collaboratif LEA</h1>
 

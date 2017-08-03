@@ -1,7 +1,7 @@
 
-@extends('template')
 @extends('layouts.app')
-@section('contenu')
+@section('content')
+
 <div class="container">
 
     <div class="panel panel-primary">
@@ -37,6 +37,11 @@
     </div>
 
 </div>
+  <style>  
+      .footer {
+      position: relative !important;
+    }
+   </style>
 
 @endsection
 

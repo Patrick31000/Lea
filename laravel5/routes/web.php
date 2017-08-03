@@ -17,6 +17,9 @@ Route::get('accueil', 'accueilController@acc');
 
 Route::get('/', 'EventController@index');
 Route::get('listall', 'listallController@index')->name('listall');
+Route::get('contact', 'contactController@create');
+Route::post('contact', 'contactController@store');
+
 
 Route::group(['middleware'=>'Islogged'], function () {
 
