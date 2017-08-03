@@ -16,7 +16,7 @@
 		<table class="table table-striped">
 			<thead>
 				<tr>
-					<th>#</th>
+					<th>Id</th>
 					<th>Nom du propriétaire</th>
 					<th>Titre de l'évènement</th>
 					<th>Date et heure de début</th>
@@ -29,20 +29,11 @@
 				<tr>
 					<th scope="row">{{ $i++ }}</th>
 					<td>{{ $event->name }}</td>
-					<td><a href="{{ route('show', $event->id) }}">{{ $event->title }}</a></td>
+					<td>{{ $event->title }}</td>
 					<td>{{ ($event->start_date) }}</td>
 					<td>{{($event->end_date) }}</td>
-					<td>
-						<a class="btn btn-primary btn-xs" href="{{ route('show', $event->id) }}">
-							<span class="glyphicon glyphicon-edit"></span> Show</a> 
-
-							<a class="btn btn-danger btn-xs" href="{{ route('delete', $event->id) }}"><span class="glyphicon glyphicon-delete"></span> Delete</a> 
-
-							<a class="btn btn-success btn-xs" href="{{ route('bidform', $event->id) }}"><span class="glyphicon glyphicon-bid"></span> Bid</a> 
-
-						</td>
-					</tr>
-					@endforeach
+				</tr>
+				@endforeach
 				</tbody>
 			</table>
 			@else
