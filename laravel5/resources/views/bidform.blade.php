@@ -66,7 +66,7 @@
                                                 <input title="" class="form-control" type="number" v-model="bidAmount">
                                             </div>
                                             <?php 
-
+                                            function chrono(){
                                             $annee = date('Y');
                                             $event = mktime(8, 0, 0, 10, 22, $annee);
 
@@ -87,13 +87,13 @@
                                          $d_restants = floor($d_restants); 
 
                                          setlocale(LC_ALL, 'fr_FR');
-
                                          echo 'Nous sommes le '. strftime('<strong>%d %B %Y</strong>, et il est <strong>%Hh%M</strong>') .'.<br />'
 
                                          . 'Il reste exactement <strong>'. $d_restants .' jours</strong>, <strong>'. $H_restantes .' heures</strong>,'
                                          . ' <strong>'. $i_restantes .' minutes</strong> et <strong>'. $s_restantes .'s</strong> avant la fin des enchères';
-
-
+                                        };  
+                                        chrono();
+                                        
                                          ?>
                                      </div>
                                  </div>
