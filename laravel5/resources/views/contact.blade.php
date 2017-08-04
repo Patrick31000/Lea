@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="{{ asset('css/contact.css') }}">
+
 @extends('layouts.app')
 @section('content')
 
@@ -5,65 +7,50 @@
 
 <div class="col-sm-offset-3 col-sm-6">
 
-<div class="panel panel-info">
+	<div class="panel panel-info">
 
-<div class="panel-heading">Contactez-moi</div>
+		<div class="panel-heading">Contactez-moi</div>
 
-<div class="panel-body">
+		<div class="panel-body">
 
-{!! Form::open(['url' => 'contact']) !!}
+			{!! Form::open(['url' => 'contact']) !!}
 
-<div class="form-group {!! $errors->has('nom') ? 'has-error' : '' !!}">
+			<div class="form-group {!! $errors->has('nom') ? 'has-error' : '' !!}">
 
-{!!
-Form::text('nom', null, ['class' => 'form-control', 'placeholder' => 'Votre nom']) !!}
+				{!!
+					Form::text('nom', null, ['class' => 'form-control', 'placeholder' => 'Votre nom']) !!}
 
-{!! $errors->first('nom', '<small class="help-block">:message</small>') !!}
+					{!! $errors->first('nom', '<small class="help-block">:message</small>') !!}
 
-</div>
+				</div>
 
-<div class="form-group {!! $errors->has('email') ? 'has-error' : '' !!}">
+				<div class="form-group {!! $errors->has('email') ? 'has-error' : '' !!}">
 
-{!!
-Form::email('email', null, ['class' => 'form-control', 'placeholder' => 'Votre email']) !!}
+					{!!
+						Form::email('email', null, ['class' => 'form-control', 'placeholder' => 'Votre email']) !!}
 
-{!! $errors->first('email', '<small class="help-block">:message</small>') !!}
+						{!! $errors->first('email', '<small class="help-block">:message</small>') !!}
 
-</div>
+					</div>
 
-<div class="form-group {!! $errors->has('texte') ? 'has-error' : '' !!}">
+					<div class="form-group {!! $errors->has('texte') ? 'has-error' : '' !!}">
 
-{!! Form::textarea
-('texte', null, ['class' => 'form-control', 'placeholder' => 'Votre message']) !!}
+						{!! Form::textarea
+							('texte', null, ['class' => 'form-control', 'placeholder' => 'Votre message']) !!}
 
-{!! $errors->first('texte', '<small class="help-block">:message</small>') !!}
+							{!! $errors->first('texte', '<small class="help-block">:message</small>') !!}
 
-</div>
+						</div>
 
-{!! Form::submit('Envoyer !', ['class' => 'btn btn-primary pull-right']) !!}
+						{!! Form::submit('Envoyer !', ['class' => 'btn btn-primary pull-right']) !!}
 
-{!! Form::close() !!}
+						{!! Form::close() !!}
 
-</div>
+					</div>
 
-</div>
+				</div>
 
-</div>
-@endsection
+			</div>
+			@endsection
 
-<style>
-.panel-heading {
-    background-color: #337AB7 !important;
-    color: white !important;
-}
-
- .panel-body {
-     border: 1px solid #337AB7 !important;
-     border-bottom-left-radius: 6px; 
-     border-bottom-right-radius: 6px; 
-} 
-
-
-
-
-</style>
+			
