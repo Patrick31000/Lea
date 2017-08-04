@@ -1,5 +1,6 @@
-@extends('template')
-@section('contenu')
+@extends('layouts.app')
+@section('content')
+
 
 <div class="row">
 	<div clss="col-lg-12">

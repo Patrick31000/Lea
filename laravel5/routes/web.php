@@ -15,17 +15,21 @@
 
 Route::get('accueil', 'accueilController@acc');
 
-
 Route::get('/', 'EventController@index');
+Route::get('listall', 'listallController@index')->name('listall');
+Route::get('contact', 'contactController@create');
+Route::post('contact', 'contactController@store');
+
 
 Route::group(['middleware'=>'Islogged'], function () {
-Route::get('/create', 'EventController@create');
-Route::post('/post/create', 'EventController@store');
-Route::get('/list', 'EventController@edit');
-Route::get('/delete/{id}', 'EventController@destroy')->name('delete');
-Route::get('/update/{id}', 'EventController@update')->name('update');
-Route::get('/show/{id}', 'EventController@show')->name('show');
-Route::get('bidform', 'BidController@bid')->name('bidform');
+
+	Route::get('/create', 'EventController@create');
+	Route::post('/post/create', 'EventController@store');
+	Route::get('/list', 'EventController@edit');
+	Route::get('/delete/{id}', 'EventController@destroy')->name('delete');
+	Route::get('/update/{id}', 'EventController@update')->name('update');
+	Route::get('/show/{id}', 'EventController@show')->name('show');
+	Route::get('bidform', 'BidController@bid')->name('bidform');
 });
 
 

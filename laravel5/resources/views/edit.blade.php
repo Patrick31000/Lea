@@ -1,6 +1,5 @@
-@extends('template')
-
-@section('contenu')
+@extends('layouts.app')
+@section('content')
 
 <div class="row">
 	<div clss="col-lg-12">
@@ -15,7 +14,7 @@
 <div class="row">
 	<div class="col-lg-6">
 		
-		
+
 		<form action="{{ route('update', $event->id) }}" method="GET">
 			{{ csrf_field() }}
 			<input type="hidden" name="_method" value="PUT" />

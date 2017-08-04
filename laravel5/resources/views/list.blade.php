@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section('content')
 <?php
     // require 'vendor/autoload.php';
@@ -36,7 +35,7 @@
 				<tr>
 					<th scope="row">{{ $i++ }}</th>
 					<td>{{ $event->name }}</td>
-					<td><a href="{{ route('update', $event->id) }}">{{ $event->title }}</a></td>
+					<td><a href="{{ route('show', $event->id) }}">{{ $event->title }}</a></td>
 					<td>{{ ($event->start_date) }}</td>
 					<td>{{($event->end_date) }}</td>
 					<td>

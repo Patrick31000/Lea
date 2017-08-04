@@ -66,7 +66,7 @@ class EventController extends Controller
 					$value->title,
 
 					false,
-
+					
 					// new Carbon($value->start_date),
 
 					// new Carbon($value->end_date)
@@ -86,6 +86,7 @@ class EventController extends Controller
 		return view('mycalender', compact('calendar'));
 
 	}
+
 
 	//Affiche la page de création d'évènements au clic
 
@@ -109,7 +110,7 @@ class EventController extends Controller
 		// $event->save();
 
 		$request->session()->flash('success', 'The event was successfully saved!');
-		return redirect('/create');
+		return redirect('/');
 	}
 
 	//Fonction pour afficher les données dans le formulaire  de modification
@@ -145,13 +146,17 @@ class EventController extends Controller
     	// 	'date'	=> 'required'
     	// 	]);
 
+
+    	$time = explode(" - ", $request->input('time'));
+
+    	$event = Event::findOrFail($id);
+    	$event->name = $request->input('name');
+    	$event->title = $request->input('title');
+    	$event->start_date = $this->change_date_format_fullcalendar($event->start_date);
+    	$event->end_date = $this->change_date_format_fullcalendar($event->end_date);
     	$time = explode(" - ", $request->input('date'));
 		// dd($time);
-    	$event 					= Event::findOrFail($id);
-    	$event->name			= $request->input('name');
-    	$event->title 			= $request->input('title');
-    	$event->start_date		= $time[0];
-    	$event->end_date 		= $time[1];
+    	
     	$event->save();
 
     	return redirect('/list');
