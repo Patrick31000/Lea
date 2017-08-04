@@ -1,3 +1,5 @@
+ <link href="{{ asset('css/confirm.css') }}" rel="stylesheet">
+
 @extends('layouts.app')
 
 @section('content')
@@ -16,7 +18,7 @@ Merci. Votre message a été transmis à l'administrateur du site. Vous recevrez
 une réponse rapidement.
 
 </div>
-<button type="button" class="btn btn-primary">Return</button>
+<a href="/" class="btn btn-primary">Retour</a>
 </div>
 
 </div>
