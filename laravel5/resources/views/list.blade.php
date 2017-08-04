@@ -1,7 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
-
+<?php
+    // require 'vendor/autoload.php';
+    use  Carbon\Carbon;
+    $timestamp = '2017-08-03 00:00:00';
+    $date = Carbon::createFromFormat('Y-m-d H:i:s', $timestamp, 'Europe/Paris');
+    $date->setTimezone('UTC +2');
+    printf("Now: %s", Carbon::now(+2));
+?>
 <div class="row">
 	<div clss="col-lg-12">
 		<ol class="breadcrumb">
