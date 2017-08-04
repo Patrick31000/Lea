@@ -22,18 +22,18 @@
 				<label for="name">Votre nom :</label>
 				<input type="text" class="form-control" name="name" placeholder="Nom" value="{{ old('name') }}">
 				@if ($errors->has('name'))
-					<p class="help-block"><span class="glyphicon glyphicon-exclamation-sign"></span>
+				<p class="help-block"><span class="glyphicon glyphicon-exclamation-sign"></span>
 					{{ $errors->first('name') }}
-					</p>
+				</p>
 				@endif
 			</div>
 			<div class="form-group @if($errors->has('title')) has-error has-feedback @endif">
 				<label for="title">Titre de la réservation</label>
 				<input type="text" class="form-control" name="title" placeholder="Titre réservation" value="{{ old('title') }}">
 				@if ($errors->has('title'))
-					<p class="help-block"><span class="glyphicon glyphicon-exclamation-sign"></span>
+				<p class="help-block"><span class="glyphicon glyphicon-exclamation-sign"></span>
 					{{ $errors->first('title') }}
-					</p>
+				</p>
 				@endif
 			</div>
 			<div class="form-group @if($errors->has('time')) has-error @endif">
@@ -42,12 +42,12 @@
 					<input type="text" class="form-control" name="time" placeholder="Sélectionnez votre tranche horaire" value="{{ old('time') }}">
 					<span class="input-group-addon">
 						<span class="glyphicon glyphicon-calendar"></span>
-                    </span>
+					</span>
 				</div>
 				@if ($errors->has('time'))
-					<p class="help-block"><span class="glyphicon glyphicon-exclamation-sign"></span>
+				<p class="help-block"><span class="glyphicon glyphicon-exclamation-sign"></span>
 					{{ $errors->first('time') }}
-					</p>
+				</p>
 				@endif
 			</div>
 			<button type="submit" class="btn btn-primary">Enregistrer !</button>
@@ -59,18 +59,18 @@
 @section('js')
 <script src=""{{ asset('css/daterangepicker.js') }}></script>
 <script type="text/javascript">
-$(function () {
-	$('input[name="time"]').daterangepicker({
-		"minDate": moment('<?php echo date('Y-m-d G')?>'),
-		"timePicker": true,
-		"timePicker24Hour": true,
-		"timePickerIncrement": 15,
-		"autoApply": true,
-		"locale": {
-			"format": "YYYY/MM/DD H:mm",
-			"separator": " - ",
-		}
-	});
-});
-</script>
-@endsection
+	$(function () {
+		$('input[name="time"]').daterangepicker({
+			"minDate": moment('<?php echo date('Y-m-d G')?>'),
+				"timePicker": true,
+				"timePicker24Hour": true,
+				"timePickerIncrement": 15,
+				"autoApply": true,
+				"locale": {
+					"format": "YYYY/MM/DD H:mm",
+					"separator": " - ",
+				}
+			});
+		});
+	</script>
+	@endsection
