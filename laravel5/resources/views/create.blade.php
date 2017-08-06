@@ -6,7 +6,7 @@
 	<div clss="col-lg-12">
 		<ol class="breadcrumb">
 			<li>You are here: <a href="{{ url('/') }}">Home</a></li>
-			<li><a href="{{ url('/') }}">Events</a></li>
+			<li><a href="{{ url('/listall') }}">Events</a></li>
 			<li class="active">Add new event</li>
 		</ol>
 	</div>
