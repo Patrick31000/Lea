@@ -3,7 +3,7 @@
 <div class="footer">
     <footer id="footer">
         <div id="box-footer">
-            <a href="/?plan" class="sitemap">Plan du site&nbsp; - &nbsp;</a>
+            <a href="/plandusite" class="sitemap">Plan du site&nbsp; - &nbsp;</a>
             <div class="design">Designed by Simplon for Lea </div>
             <a href="/contact" class="contact">- &nbsp;Contact</a>
         </div>
