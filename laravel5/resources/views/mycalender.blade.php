@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="{{ asset('css/mycalender.css') }}">
 @extends('layouts.app')
 @section('content')
 
@@ -9,8 +10,8 @@
 
         <div class="panel-heading" >
 
-           
-  
+
+
             <a href="listall" class="btn btn-default">Liste des évènements</a>
             @if (Auth::check())
 
@@ -18,12 +19,12 @@
             <a href="list" class="btn btn-default">Espace personnel</a>
 
             @else
-                        
-                    @endif
-                </div>
-            @endif
 
-    
+            @endif
+        </div>
+        @endif
+
+
 
         <div class="panel-body" >
 
@@ -36,11 +37,6 @@
     </div>
 
 </div>
-  <style>  
-      .footer {
-      position: relative !important;
-    }
-   </style>
 
 @endsection
 

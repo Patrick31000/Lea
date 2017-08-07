@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="{{ asset('css/footer.css') }}">
 
 <div class="footer">
     <footer id="footer">
@@ -8,50 +9,6 @@
         </div>
     </footer>
 </div>
-<style>
-html {
-    height: 100%;
-}
 
-body{
-    position: relative;
-    min-height: 100%;
-    {-moz-box-sizing: border-box; box-sizing: border-box;}
-}
-
- .footer{
-    position: absolute;
-    background-color: #F9F9F9;
-    color: black;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    text-align: center;
-    border-top: 1px solid #E7E7E7;
-    display: inline;
-    justify-content: space-between;
-} 
-
-    #box-footer {
-        display: inline-flex;
-        flex: 2;
-        padding-bottom: 0.625em;
-        padding-right: 1.80em;
-        padding-left: 1.80em;
-        padding-top: 1em;
-        height: 4em;
-    }
-    
-    #box-footer a {
-        color: black;
-        white-space: nowrap;
-    }
-    
-    #box-footer a:hover {
-        color: blue;
-        text-decoration: none;
-    }
-
-</style>
 
 

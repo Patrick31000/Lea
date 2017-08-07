@@ -1,0 +1,16 @@
+.titre {
+	padding-left: 6em;
+	padding-bottom: 1em;
+}
+
+h2{
+	padding-bottom: 0.5em;
+}
+
+ol{
+	padding-bottom: 3em;
+}
+
+li{
+	text-decoration: underline;
+}
