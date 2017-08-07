@@ -1,10 +1,6 @@
  <link href="{{ asset('css/bidform.css') }}" rel="stylesheet">
-
  @extends('layouts.app')
  @section('content')
-
-
-
  <div class="container">
  </div>
  <div class="container" id="main-content">
@@ -42,17 +38,15 @@
                         <div class="col-sm-2">
                             <button class="form-control btn btn-primary" @click="manualBid">Bid</button>
                         </div>
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-</div>
-</div>
-</div>
 @endsection
-
-
 @section('js')
 @endsection
+
+

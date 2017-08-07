@@ -31,6 +31,12 @@
 					<td>{{ $event->title }}</td>
 					<td>{{ ($event->start_date) }}</td>
 					<td>{{($event->end_date) }}</td>
+					@if (Auth::check())
+					<td><a class="btn btn-success btn-xs" href="{{ route('bidform', $event->id) }}"><span class="glyphicon glyphicon-bid"></span> Bid</a> 
+					</td>
+					 @else
+
+            		@endif
 				</tr>
 				@endforeach
 				</tbody>

@@ -13,6 +13,7 @@ use App\User;
 use Carbon\Carbon;
 
 use Illuminate\Support\Facades\Auth;
+
 class BidController extends Controller
 {
 	
@@ -27,6 +28,5 @@ class BidController extends Controller
 		
 		return view('bidform', $data);
 	}
-
 
 }
