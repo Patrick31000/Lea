@@ -1,0 +1,10 @@
+.panel-heading {
+	background-color: #337AB7 !important;
+	color: white !important;
+}
+
+.panel-body {
+	border: 1px solid #337AB7 !important;
+	border-bottom-left-radius: 6px; 
+	border-bottom-right-radius: 6px; 
+} 
